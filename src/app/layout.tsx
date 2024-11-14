@@ -42,7 +42,7 @@ async function Header() {
   const navigation = await client.getSingle("navigation");
 
   return (
-<div className="menu">
+<div className="navigation-bar">
 {navigation.data.links.map((item) => (
  <PrismicNextLink field={item.link}>
   <PrismicRichText field={item.label} />

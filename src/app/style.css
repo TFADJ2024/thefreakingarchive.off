@@ -25,6 +25,11 @@ header {
     display: block;
 }
 
+div img{
+    width: 100%;
+    height: auto;
+}
+
 iframe.header {
     position: relative;
     display: block;
