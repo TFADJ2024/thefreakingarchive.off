@@ -1,0 +1,276 @@
+@font-face {
+    font-family:Title ;
+    src: url(typefaces/NyghtSerif-MediumItalic.otf);
+  }
+  @font-face {
+    font-family:text;
+    src: url(typefaces/univers.ttf);
+}
+
+
+  *{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color:#F9F6EE ;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+}
+
+header {
+    position: relative;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color:#F9F6EE;
+}
+
+/* ANNOUNCEMENT BAR */
+.scroll-bar {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: #F9F6EE;
+    background-color: #ff00d4;
+    font-family: text ;
+    scroll-behavior: smooth;
+    overflow: hidden; 
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.scroll-bar marquee{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden; 
+    animation:  15s linear infinite;
+}
+
+/* PAGE TITLE */
+div.title {
+    padding: 0;
+    padding-left: 1vw;
+    margin: 0;
+    position: relative;
+}
+
+.title h1{
+    display: inline;
+    margin: 0;
+    margin-bottom: 1.5vh;
+    padding: 0;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    font-family: Title;
+    font-size: 95px;
+    color: #5700FC;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+/*NAVIGATION BAR*/
+.navigation-bar{
+    display: flex;
+    position: sticky;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    grid-column-gap: 8%;
+    margin-left: 1.5%;
+    margin-right: 40%;
+}
+
+.navigation-bar a{
+    margin: 0;
+    padding: 0;
+    display: inline;
+    position: relative;
+    font-size: 1.vw;
+    font-family: text;
+    color: #5700FC;
+    text-decoration: none;
+}
+
+div.navigation-bar a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* CONTACT */
+div.popup{
+    position: relative;
+    display: inline;
+    cursor: pointer;
+    font-family: text;
+    font-size: 1.vw;
+    color: #5700FC; 
+    margin: 0;
+    padding: 0;
+}
+
+.popup:hover{
+    text-decoration: underline;
+}
+
+.popup_text {
+    position: absolute;
+    background-color: #F9F6EE !important  ;
+    width: 350px; 
+    height: auto;
+    left: -10vw;
+    top: 5vh;
+    padding: 1vh 2vw;
+    visibility: hidden;
+    font-family: Title ;
+    color:#5700FC;
+    border: 8px double;
+    border-color: #ff00d4;
+    text-decoration: none ;
+} 
+
+.popup_text h2{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-family: TitleLight;
+    text-transform: uppercase;
+}
+
+.popup_text .email-link {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-family: TitleLight;
+    text-decoration: none; 
+}
+
+.popup_text .email-link :hover {
+   cursor: pointer;
+   color: #ff00d4;
+}
+
+.popup .show {
+    visibility: visible
+  }
+
+/* HAMBURGER MENU */
+.hamburger-icon{
+    margin: auto 0;
+    padding: auto 0;
+    position: absolute;
+    top: -20px;
+    visibility: hidden;
+    color: #5700FC;
+    background-color: #F9F6EE;
+    font-size: 40px;
+    border: none;
+}
+
+.hamburger-icon:hover{
+    cursor: pointer;
+    color: #ff00d4;
+}
+
+/* SIDEBAR RESPONSIVE */
+div.sidebar div.block-pointer-events{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.2;
+    z-index: 5;
+}
+
+div.sidebar {
+    z-index: 50;
+    visibility: hidden;
+}
+
+div.links {
+    margin: 0;
+    margin-right: 50vw;
+    width: 50vw;
+    height: 100vh;
+    padding: 15vh 5vw;
+    position: fixed;
+    z-index: inherit;
+    background-color:#F9F6EE;
+    border-right: 5px solid #5700FC;
+    touch-action: none;
+}
+
+div.sidebar a {
+    display: block;
+    font-family: Title;
+    font-size: 40px;
+    color: #5700FC;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+div.sidebar a.close-sidebar {
+    display: flex;
+    position: absolute;
+    right: 4vw;
+    top: 1.5vh;
+    font-family: text;
+    font-size: 40px;
+    color: #5700FC;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-decoration: none;
+}
+
+div.sidebar a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color:#ff00d4;
+}   
+
+ /* RESPONSIVE DESIGN */ 
+ @media only screen and (max-width : 980px) {
+    div.title {
+        padding-left: 2vw;
+    }
+    .title h1 {
+        font-size: 80px;
+    }
+    
+    .popup_text {
+        left: -20vw;
+    } 
+
+ }
+
+ @media only screen and (max-width: 700px) {
+    div.title {
+        padding-left: 2vw;
+    }
+
+    .title h1 {
+        display: block;
+        padding-left: 1.5vw;
+    }
+
+    .navigation-bar {
+        visibility: hidden;
+    }
+
+    .hamburger-icon{
+        visibility: visible;
+    }
+ }
+

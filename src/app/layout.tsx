@@ -1,12 +1,20 @@
-import "./globals.css";
+import "./about.css"; 
+import "./category-years.css"; 
+import "./footer.css"; 
+import "./header.css"; 
+import "./project-style.css"; 
+import "./style.css"; 
+
 
 import { Inter } from "next/font/google";
 import { asText } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 
+
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
+import { PrismicRichText } from "@/components/PrismicRichText";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,29 +42,18 @@ async function Header() {
   const navigation = await client.getSingle("navigation");
 
   return (
-    <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
-        <PrismicNextLink
-          href="/"
-          className="text-xl font-semibold tracking-tight"
-        >
-          <PrismicText field={settings.data.siteTitle} />
-        </PrismicNextLink>
-        <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
-              >
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </Bounded>
+<div className="menu">
+{navigation.data.links.map((item) => (
+ <PrismicNextLink field={item.link}>
+  <PrismicRichText field={item.label} />
+  </PrismicNextLink>
+))}
+</div>
   );
+  
 }
+
+<div className="flex justify-center items-center w-screen bg-greenGrey">
+  <div className="container grid grid-cols-1 md:grid-cols-2 gap-24 items-center min-h-[512px] py-24">
+  </div>
+</div>

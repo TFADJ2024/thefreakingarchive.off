@@ -1,0 +1,251 @@
+@font-face {
+    font-family: title;
+    src: url(typefaces/NyghtSerif-MediumItalic.otf);
+  }
+  
+  @font-face {
+    font-family:text;
+    src: url(typefaces/univers.ttf);
+  }
+
+*{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color:#F9F6EE ;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+}
+
+iframe.header {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 160px;
+    z-index: 1;
+}
+
+/* footer {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    bottom: 0;
+}
+
+iframe.footer {
+    position: relative;
+    display: block;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 200px;
+} */
+
+footer {
+    position: relative;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    text-align: center;
+    background-color: #ff00d4;
+}
+
+.credits p {
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5vh;
+    font-family: 'text';
+    font-size: 12px;
+    color:#F9F6EE;
+    align-self: center;
+    text-align: center;
+}
+
+/* CONTENT WRAPPER */
+div.content-wrapper {
+    position: relative;
+    margin: 8vh 15vw 10vh 15vw;
+    z-index: -1; 
+}
+
+div.content-wrapper-1, div.content-wrapper-2, div.documentation {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+div.content-wrapper-1 h1 {
+    margin: 0;
+    padding: 0;
+    width: 45vw;
+    padding-bottom: 5vh;
+    font-family: 'title';
+    font-size: 55px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #5700FC;
+}
+
+div.content-wrapper-1 p {
+    margin: 0;
+    padding: 0;
+    padding-left: 25vw;
+    font-family: 'text';
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 1.4;
+    color: #5700FC;
+}
+
+div.content-wrapper img {
+    position: relative;
+    margin: 0;
+    padding: 5vh 0 5vh 0;
+    width: 70vw;
+    height: 100%;
+}
+
+div.content-wrapper-2 {
+    position: relative;
+    columns: 3;
+    gap: 3vw;
+    orphans: 0;
+    widows: 0;
+    height: fit-content;
+}
+
+div.content-wrapper-2 p {
+    margin: 0;
+    padding: 0;
+    font-family: 'text';
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 1.4;
+    color: #5700FC;
+}
+
+div.content-wrapper-2 h2 {
+    margin: 0;
+    padding: 0;
+    padding-top: 2vh;
+    font-family: 'title';
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: #5700FC;
+}
+
+div.documentation {
+    margin: 0;
+    padding: 0;
+    padding-top: 5vh;
+}
+
+div.documentation h2 {
+    display: flex;
+    justify-content: center;
+    font-family: 'title';
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #5700FC;
+}
+
+div.youtube-links {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    /* we need the justify-content when we have more videos */
+    /* justify-content: space-between; */ 
+}
+
+div.documentation iframe {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 34vw;
+    height: 34vh;
+}
+
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width: 1100px) {
+    div.content-wrapper {
+        margin: 8vh 12vw 10vh 12vw;
+    }
+
+    div.content-wrapper-1 h1 {
+        width: 60vw;
+        padding-bottom: 5vh;
+        font-family: 'title';
+        font-size: 55px;
+        text-transform: uppercase;
+        line-height: 1.1;
+        color: #5700FC;
+    }
+
+    div.content-wrapper img {
+        padding: 5vh 0 5vh 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    div.content-wrapper-2 {
+        columns: 2;
+        gap: 3vw;
+    }
+
+    div.documentation iframe {
+        width: 47vw;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    div.content-wrapper {
+        margin: 8vh 12vw 10vh 12vw;
+    }
+
+    div.content-wrapper-1 h1 {
+        width: 70vw;
+        padding-bottom: 5vh;
+        font-family: 'title';
+        font-size: 55px;
+        text-transform: uppercase;
+        line-height: 1.1;
+        color: #5700FC;
+    }
+
+    div.content-wrapper-1 p {
+        padding-left: 0;
+    }
+
+    div.content-wrapper-2 {
+        columns: 1;
+        gap: 3vw;
+    }
+
+    div.documentation h2 {
+        display: block;
+    }
+
+    div.documentation iframe {
+        display: block;
+        width: 100%;
+        height: 30vh;
+    }
+}

@@ -1,0 +1,146 @@
+@font-face {
+    font-family:Title ;
+    src: url(typefaces/NyghtSerif-MediumItalic.otf);
+  }
+  @font-face {
+    font-family:text;
+    src: url(typefaces/univers.ttf);
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color:#F9F6EE ;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+}
+
+iframe.header {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 160px;
+    z-index: 1;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    text-align: center;
+    background-color: #ff00d4;
+}
+
+.credits p {
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5vh;
+    font-family: 'text';
+    font-size: 12px;
+    color:#F9F6EE;
+    align-self: center;
+    text-align: center;
+}
+
+/* PROJECT-TEXT */
+div.project-text{
+    position: fixed;
+    display: block;
+    margin: 0;
+    padding-right: 10vw;
+    top: 30vh;
+    left: 60vw;
+    z-index: -1; 
+}
+
+.project-text h1,h2,h3,p {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    color: #5700FC;
+}
+
+.project-text h1 {
+    font-family: 'title';
+    font-size: 55px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.project-text p {
+    font-family: 'text';
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.project-text h2 {
+    font-family: 'text';
+    font-size: 12px;
+}
+
+.project-text h3 {
+    font-family: 'text';
+    font-size: 12px;
+    padding-bottom: 8px;
+    padding-left: 2px;
+}
+
+/* PROJECT IMAGES */
+div.project-images {
+    position: relative;
+    width: 40%;
+    height: 40%;
+    margin: 8vh 10vw 10vh 10vw;
+    padding: 0;
+    z-index: -1;
+}
+
+img.pictures-item {
+    width:120%;
+    height: auto;
+    margin: 0;
+    margin-bottom: 2vh;
+}
+
+/* RESPONSIVE DESIGN*/
+@media only screen and (max-width: 700px) {
+    div.project-text{
+        position: relative;
+        padding: 5vw 10vw;
+        padding-right: 10vw;
+        top: 5vh;
+        left: 0vw;
+        z-index: 0; 
+    }
+
+    div.project-images {
+        position: relative;
+        width: 80vw;
+        height: 40%;
+        padding: 5vh 10vw;
+        padding: 0;
+        z-index: 0;
+    }
+    
+    img.pictures-item {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 2vh;
+    }
+}

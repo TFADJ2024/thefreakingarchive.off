@@ -29,6 +29,8 @@ export interface NavigationDocumentDataLinksItem {
   link: prismic.LinkField;
 }
 
+type NavigationDocumentDataSlicesSlice = never;
+
 /**
  * Content for Navigation documents
  */
@@ -43,6 +45,17 @@ interface NavigationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+
+  /**
+   * `slices` field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
 }
 
 /**
@@ -674,11 +687,23 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
+      NavigationDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
