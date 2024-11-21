@@ -1,3 +1,5 @@
+import "./style.css"; 
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { asText } from "@prismicio/client";
@@ -5,6 +7,8 @@ import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "../prismicio";
 import { components } from "../slices";
+import { PrismicRichText } from "@/components/PrismicRichText";
+import { PrismicNextImage } from "@prismicio/next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -23,6 +27,26 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page() {
   const client = createClient();
   const page = await client.getByUID("page", "home").catch(() => notFound());
+  const projects = await client.getAllByType ("project");
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <div>
+      <div className="projects">
+        {projects.map((item,i)=> {
+          return (
+            <div className="project">
+              <PrismicNextImage field={item.data.project_image} />
+              {item.data.project_title}
+              <PrismicRichText field={item.data.project_descrption} />
+              <p>By</p>{item.data.students_name}
+
+            </div>
+          )
+        })}
+      </div>
+      <SliceZone slices={page.data.slices} components={components} />
+
+    </div>
+  )
 }
+
