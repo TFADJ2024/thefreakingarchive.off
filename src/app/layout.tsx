@@ -46,7 +46,7 @@ async function Header() {
   return (
     <div>
       <div className="scroll-bar">
-        <PrismicRichText field={data.marquee} />
+        <PrismicRichText field={scrollbar.data.marquee} />
       </div>
       <div className="title">
         <h1 className="title-page">
@@ -54,8 +54,8 @@ async function Header() {
         </h1>
       </div>
       <div className="navigation-bar">
-        {navigation.data.links.map((item) => (
-        <PrismicNextLink field={item.link}>
+        {navigation.data.links.map((item,i) => (
+        <PrismicNextLink field={item.link} key={`link${i}`}>
           <PrismicRichText field={item.label} />
           </PrismicNextLink>
         ))}

@@ -32,7 +32,7 @@ export default async function Page() {
       <div className="projects">
         {projects.map((item,i)=> {
           return (
-              <div className="project-item">
+              <div className="project-item" key={`project${i}`}>
                 <PrismicNextImage field={item.data.project_image} />
                 <h3>{item.data.project_title}</h3>
                 <h2><PrismicRichText field={item.data.project_descrption}/></h2> 
