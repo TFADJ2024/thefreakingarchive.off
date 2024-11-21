@@ -41,9 +41,13 @@ async function Header() {
   const client = createClient();
   const settings = await client.getSingle("settings");
   const navigation = await client.getSingle("navigation");
+  const scrollbar = await client.getSingle("marquee");
 
   return (
     <div>
+      <div className="scroll-bar">
+        <PrismicRichText field={data.marquee} />
+      </div>
       <div className="title">
         <h1 className="title-page">
           nav title
