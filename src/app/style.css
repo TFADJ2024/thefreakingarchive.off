@@ -1,0 +1,183 @@
+ @font-face {
+    font-family:Title ;
+    src: url(typefaces/NyghtSerif-MediumItalic.otf);
+  }
+  @font-face {
+    font-family:text;
+    src: url(typefaces/univers.ttf);
+}
+
+
+*{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color:#F9F6EE ;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+}
+
+div img{
+    width: 100%;
+    height: auto;
+}
+
+iframe.header {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 160px;
+    z-index: 1;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    text-align: center;
+    background-color: #ff00d4;
+}
+
+.credits p {
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5vh;
+    font-family: 'text';
+    font-size: 12px;
+    color:#F9F6EE;
+    align-self: center;
+    text-align: center;
+}
+
+/*HOME PAGE AND CATEGORIES*/
+.projects{
+    margin: 8vh 10vw 6vh 7vw;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    gap: 0px 50px; 
+    z-index: -1; 
+}
+
+.projects a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
+
+.project-item {
+    width: 22vw;
+    height: 60vh;
+    padding-right: 5vw;
+}
+
+a.item :hover {
+    color: #ff00d4;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.project-item img {
+    width:120%;
+    height: 50%;
+    padding-top: 5vh;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.project-item h2{
+    margin: 0;
+    width: fit-content; 
+    font-family: Title;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #5700FC;
+}
+
+.project-item img:hover ~ h2{
+    color: #ff00d4;
+}
+
+.project-item h3 {
+    font-family: text;
+    font-size: 12px;
+    color: #5700FC;
+    width: fit-content;
+}
+
+h3.project-item-title {
+    margin-top: 1.5vh;
+    margin-bottom: 0.6vh;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width: 1100px) {
+    div.projects {
+        margin: 8vh 10vw 6vh 10vw;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 0px 30px; 
+    }
+
+    .project-item {
+        width: 40vw;
+        height: 60vh;
+        padding-right: 5vw;
+    }
+
+    .project-item img {
+        width:100%;
+        height: 60%;
+        padding-top: 5vh;
+        cursor: pointer;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    div.projects {
+        margin: 8vh 10vw 6vh 10vw;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    .project-item {
+        width: 80vw;
+        height: 70vh;
+        padding-right: 5vw;
+    }
+
+    .project-item img {
+        width:100%;
+        height: 70%;
+        padding-top: 5vh;
+        cursor: pointer;
+        object-fit: cover;
+    }
+}
