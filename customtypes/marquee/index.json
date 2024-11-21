@@ -1,0 +1,20 @@
+{
+  "format": "custom",
+  "id": "marquee",
+  "label": "Marquee",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "marquee": {
+        "type": "StructuredText",
+        "config": {
+          "label": "marquee",
+          "placeholder": "marquee",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}

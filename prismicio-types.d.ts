@@ -37,6 +37,38 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Marquee documents
+ */
+interface MarqueeDocumentData {
+  /**
+   * marquee field in *Marquee*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: marquee
+   * - **API ID Path**: marquee.marquee
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  marquee: prismic.RichTextField;
+}
+
+/**
+ * Marquee document from Prismic
+ *
+ * - **API ID**: `marquee`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MarqueeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<MarqueeDocumentData>,
+    "marquee",
+    Lang
+  >;
+
+/**
  * Item in *Navigation → Links*
  */
 export interface NavigationDocumentDataLinksItem {
@@ -347,6 +379,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | FooterDocument
+  | MarqueeDocument
   | NavigationDocument
   | PageDocument
   | ProjectDocument
@@ -702,6 +735,8 @@ declare module "@prismicio/client" {
     export type {
       FooterDocument,
       FooterDocumentData,
+      MarqueeDocument,
+      MarqueeDocumentData,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
