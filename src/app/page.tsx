@@ -1,5 +1,3 @@
-import "./style.css"; 
-
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { asText } from "@prismicio/client";
@@ -34,13 +32,12 @@ export default async function Page() {
       <div className="projects">
         {projects.map((item,i)=> {
           return (
-            <div className="project">
-              <PrismicNextImage field={item.data.project_image} />
-              {item.data.project_title}
-              <PrismicRichText field={item.data.project_descrption} />
-              <p>By</p>{item.data.students_name}
-
-            </div>
+              <div className="project-item">
+                <PrismicNextImage field={item.data.project_image} />
+                <h3>{item.data.project_title}</h3>
+                <h2><PrismicRichText field={item.data.project_descrption}/></h2> 
+                <h3>{item.data.students_name}</h3>
+              </div>
           )
         })}
       </div>

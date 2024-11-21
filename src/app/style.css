@@ -65,11 +65,11 @@ footer {
 
 /*HOME PAGE AND CATEGORIES*/
 .projects{
-    margin: 8vh 10vw 6vh 7vw;
+    margin: 6vh 10vw;
     padding: 0;
     display: grid;
-    grid-template-columns: 32% 32% 32%;
-    gap: 0px 50px; 
+    grid-template-columns: 34% 34% 34%;
+    gap: 0px 20px; 
     z-index: -1; 
 }
 
@@ -81,8 +81,8 @@ footer {
 
 .project-item {
     width: 22vw;
-    height: 60vh;
-    padding-right: 5vw;
+    height: 70vh;
+    padding-right: 10vw;
 }
 
 a.item :hover {
@@ -94,7 +94,7 @@ a:hover{
 }
 
 .project-item img {
-    width:120%;
+    width: 120%;
     height: 50%;
     padding-top: 5vh;
     cursor: pointer;
