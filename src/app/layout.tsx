@@ -64,17 +64,12 @@ async function Header() {
 
 async function Footer() {
   const client = createClient();
-  const settings = await client.getSingle("settings");
-  const navigation = await client.getSingle("navigation");
+  const footer = await client.getSingle("footer");
 
   return (
     <div>
       <footer className="credits">
-        {navigation.data.links.map((item) => (
-        <PrismicNextLink field={item.link}>
-          <PrismicRichText field={item.label} />
-          </PrismicNextLink>
-        ))}
+      <PrismicRichText field={footer.data.footer_credits} />
       </footer>
     </div>
 
