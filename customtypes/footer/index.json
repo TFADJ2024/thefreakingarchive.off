@@ -1,0 +1,20 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footer_credits": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer credits",
+          "placeholder": "credits",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}

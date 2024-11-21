@@ -5,6 +5,38 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Footer credits field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: credits
+   * - **API ID Path**: footer.footer_credits
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  footer_credits: prismic.RichTextField;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+/**
  * Item in *Navigation → Links*
  */
 export interface NavigationDocumentDataLinksItem {
@@ -168,7 +200,7 @@ type ProjectDocumentDataSlicesSlice = never;
  */
 interface ProjectDocumentData {
   /**
-   * Students_Name field in *Project*
+   * First Name Last Name field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -179,7 +211,7 @@ interface ProjectDocumentData {
   students_name: prismic.KeyTextField;
 
   /**
-   * Project_Descrption field in *Project*
+   * Project Descrption field in *Project*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -190,7 +222,7 @@ interface ProjectDocumentData {
   project_descrption: prismic.RichTextField;
 
   /**
-   * Project_Image field in *Project*
+   * Project Image (Max 5 images) field in *Project*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -198,10 +230,10 @@ interface ProjectDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  project_image: prismic.ImageField<never>;
+  project_image: prismic.ImageField<"pic 2" | "pic 3">;
 
   /**
-   * Project_Title field in *Project*
+   * Project Title field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -210,6 +242,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   project_title: prismic.KeyTextField;
+
+  /**
+   * Year Month field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Project*
@@ -303,6 +346,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | FooterDocument
   | NavigationDocument
   | PageDocument
   | ProjectDocument
@@ -656,6 +700,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
