@@ -30,6 +30,7 @@ export default async function RootLayout({
       <body className="overflow-x-hidden antialiased">
         <Header />
         {children}
+        <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
@@ -42,18 +43,41 @@ async function Header() {
   const navigation = await client.getSingle("navigation");
 
   return (
-<div className="navigation-bar">
-{navigation.data.links.map((item) => (
- <PrismicNextLink field={item.link}>
-  <PrismicRichText field={item.label} />
-  </PrismicNextLink>
-))}
-</div>
+    <div>
+      <div className="title">
+        <h1 className="title-page">
+          nav title
+        </h1>
+      </div>
+      <div className="navigation-bar">
+        {navigation.data.links.map((item) => (
+        <PrismicNextLink field={item.link}>
+          <PrismicRichText field={item.label} />
+          </PrismicNextLink>
+        ))}
+      </div>
+    </div>
+
   );
   
 }
 
-<div className="flex justify-center items-center w-screen bg-greenGrey">
-  <div className="container grid grid-cols-1 md:grid-cols-2 gap-24 items-center min-h-[512px] py-24">
-  </div>
-</div>
+async function Footer() {
+  const client = createClient();
+  const settings = await client.getSingle("settings");
+  const navigation = await client.getSingle("navigation");
+
+  return (
+    <div>
+      <footer className="credits">
+        {navigation.data.links.map((item) => (
+        <PrismicNextLink field={item.link}>
+          <PrismicRichText field={item.label} />
+          </PrismicNextLink>
+        ))}
+      </footer>
+    </div>
+
+  );
+  
+}
