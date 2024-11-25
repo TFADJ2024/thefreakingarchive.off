@@ -345,6 +345,71 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
+type ProjectPage2DocumentDataSlicesSlice = ProjectTextSlice;
+
+/**
+ * Content for Project page 2 documents
+ */
+interface ProjectPage2DocumentData {
+  /**
+   * Slice Zone field in *Project page 2*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page_2.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectPage2DocumentDataSlicesSlice> /**
+   * Meta Title field in *Project page 2*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: project_page_2.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Project page 2*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: project_page_2.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Project page 2*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page_2.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Project page 2 document from Prismic
+ *
+ * - **API ID**: `project_page_2`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectPage2Document<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectPage2DocumentData>,
+    "project_page_2",
+    Lang
+  >;
+
 /**
  * Content for Settings documents
  */
@@ -383,6 +448,7 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | ProjectDocument
+  | ProjectPage2Document
   | SettingsDocument;
 
 /**
@@ -526,6 +592,61 @@ type ImageSliceVariation = ImageSliceDefault | ImageSliceBanner;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
+/**
+ * Primary content in *ProjectText → Default → Primary*
+ */
+export interface ProjectTextSliceDefaultPrimary {
+  /**
+   * Title field in *ProjectText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: projecttitle
+   * - **API ID Path**: project_text.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Project Description field in *ProjectText → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: project description
+   * - **API ID Path**: project_text.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ProjectText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProjectText*
+ */
+type ProjectTextSliceVariation = ProjectTextSliceDefault;
+
+/**
+ * ProjectText Shared Slice
+ *
+ * - **API ID**: `project_text`
+ * - **Description**: ProjectText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectTextSlice = prismic.SharedSlice<
+  "project_text",
+  ProjectTextSliceVariation
+>;
 
 /**
  * Primary content in *Text → Default → Primary*
@@ -747,6 +868,9 @@ declare module "@prismicio/client" {
       ProjectDocument,
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
+      ProjectPage2Document,
+      ProjectPage2DocumentData,
+      ProjectPage2DocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -760,6 +884,10 @@ declare module "@prismicio/client" {
       ImageSliceVariation,
       ImageSliceDefault,
       ImageSliceBanner,
+      ProjectTextSlice,
+      ProjectTextSliceDefaultPrimary,
+      ProjectTextSliceVariation,
+      ProjectTextSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,
