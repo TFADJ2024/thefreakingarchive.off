@@ -37,7 +37,7 @@ export default async function Page() {
               <a href={`/${item.uid}`}  className="project-item" key={`project${i}`}>
                 <PrismicNextImage field={item.data.project_image} />
                 <h3>{item.data.project_title}</h3>
-                <h2>{item.data.project_descrption?.[0]?.text?.split(" ").slice(0,20).join(' ')}...</h2> 
+                <h2>{item.data.project_descrption?.[0]?.text?.split(" ").slice(0,20).join(' ')} [...]</h2> 
                 <h3>{item.data.students_name}</h3>
                 </a>
               
