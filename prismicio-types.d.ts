@@ -4,6 +4,82 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type CategoriesDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Categories documents
+ */
+interface CategoriesDocumentData {
+  /**
+   * Title field in *Categories*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Slice Zone field in *Categories*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CategoriesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: categories.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: categories.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Categories*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Categories document from Prismic
+ *
+ * - **API ID**: `categories`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CategoriesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CategoriesDocumentData>,
+    "categories",
+    Lang
+  >;
+
 /**
  * Content for Footer documents
  */
@@ -138,11 +214,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice =
-  | HeroSlice
-  | TextSlice
-  | ImageSlice
-  | TextWithImageSlice;
+type PageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Page documents
@@ -158,17 +230,6 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.TitleField;
-
-  /**
-   * Parent field in *Page*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.parent
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  parent: prismic.ContentRelationshipField<"page">;
 
   /**
    * Slice Zone field in *Page*
@@ -287,17 +348,6 @@ interface ProjectDocumentData {
   date: prismic.KeyTextField;
 
   /**
-   * Project link field in *Project*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.project_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  project_link: prismic.LinkField;
-
-  /**
    * Slice Zone field in *Project*
    *
    * - **Field Type**: Slice Zone
@@ -356,71 +406,6 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
-type ProjectPage2DocumentDataSlicesSlice = ProjectTextSlice;
-
-/**
- * Content for Project page 2 documents
- */
-interface ProjectPage2DocumentData {
-  /**
-   * Slice Zone field in *Project page 2*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project_page_2.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ProjectPage2DocumentDataSlicesSlice> /**
-   * Meta Title field in *Project page 2*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: project_page_2.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Project page 2*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: project_page_2.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Project page 2*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project_page_2.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Project page 2 document from Prismic
- *
- * - **API ID**: `project_page_2`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ProjectPage2Document<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ProjectPage2DocumentData>,
-    "project_page_2",
-    Lang
-  >;
-
 /**
  * Content for Settings documents
  */
@@ -453,396 +438,87 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+type YearsDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Years documents
+ */
+interface YearsDocumentData {
+  /**
+   * Title field in *Years*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: years.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Slice Zone field in *Years*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: years.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<YearsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Years*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: years.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Years*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: years.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Years*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: years.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Years document from Prismic
+ *
+ * - **API ID**: `years`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type YearsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<YearsDocumentData>, "years", Lang>;
+
 export type AllDocumentTypes =
+  | CategoriesDocument
   | FooterDocument
   | MarqueeDocument
   | NavigationDocument
   | PageDocument
   | ProjectDocument
-  | ProjectPage2Document
-  | SettingsDocument;
-
-/**
- * Primary content in *Hero → Default → Primary*
- */
-export interface HeroSliceDefaultPrimary {
-  /**
-   * Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Button Link field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
-   * Button Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.buttonText
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  buttonText: prismic.KeyTextField;
-
-  /**
-   * Background Image field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.backgroundImage
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  backgroundImage: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for Hero Slice
- *
- * - **API ID**: `default`
- * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<HeroSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Hero*
- */
-type HeroSliceVariation = HeroSliceDefault;
-
-/**
- * Hero Shared Slice
- *
- * - **API ID**: `hero`
- * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
-
-/**
- * Primary content in *Image → Default → Primary*
- */
-export interface ImageSliceDefaultPrimary {
-  /**
-   * Image field in *Image → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for Image Slice
- *
- * - **API ID**: `default`
- * - **Description**: Image
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ImageSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ImageSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Image → Banner → Primary*
- */
-export interface ImageSliceBannerPrimary {
-  /**
-   * Image field in *Image → Banner → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image.banner.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Banner variation for Image Slice
- *
- * - **API ID**: `banner`
- * - **Description**: Image
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ImageSliceBanner = prismic.SharedSliceVariation<
-  "banner",
-  Simplify<ImageSliceBannerPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Image*
- */
-type ImageSliceVariation = ImageSliceDefault | ImageSliceBanner;
-
-/**
- * Image Shared Slice
- *
- * - **API ID**: `image`
- * - **Description**: Image
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
-
-/**
- * Primary content in *ProjectText → Default → Primary*
- */
-export interface ProjectTextSliceDefaultPrimary {
-  /**
-   * Title field in *ProjectText → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: projecttitle
-   * - **API ID Path**: project_text.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Project Description field in *ProjectText → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: project description
-   * - **API ID Path**: project_text.default.primary.project_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  project_description: prismic.RichTextField;
-}
-
-/**
- * Default variation for ProjectText Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ProjectTextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ProjectTextSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *ProjectText*
- */
-type ProjectTextSliceVariation = ProjectTextSliceDefault;
-
-/**
- * ProjectText Shared Slice
- *
- * - **API ID**: `project_text`
- * - **Description**: ProjectText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ProjectTextSlice = prismic.SharedSlice<
-  "project_text",
-  ProjectTextSliceVariation
->;
-
-/**
- * Primary content in *Text → Default → Primary*
- */
-export interface TextSliceDefaultPrimary {
-  /**
-   * Text field in *Text → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Default variation for Text Slice
- *
- * - **API ID**: `default`
- * - **Description**: Text
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TextSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Text → Two Columns → Primary*
- */
-export interface TextSliceTwoColumnsPrimary {
-  /**
-   * Text field in *Text → Two Columns → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.twoColumns.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Two Columns variation for Text Slice
- *
- * - **API ID**: `twoColumns`
- * - **Description**: Text
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextSliceTwoColumns = prismic.SharedSliceVariation<
-  "twoColumns",
-  Simplify<TextSliceTwoColumnsPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Text*
- */
-type TextSliceVariation = TextSliceDefault | TextSliceTwoColumns;
-
-/**
- * Text Shared Slice
- *
- * - **API ID**: `text`
- * - **Description**: Text
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
-
-/**
- * Primary content in *TextWithImage → Default → Primary*
- */
-export interface TextWithImageSliceDefaultPrimary {
-  /**
-   * Text field in *TextWithImage → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Image field in *TextWithImage → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for TextWithImage Slice
- *
- * - **API ID**: `default`
- * - **Description**: TextWithImage
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextWithImageSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TextWithImageSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *TextWithImage → With Button → Primary*
- */
-export interface TextWithImageSliceWithButtonPrimary {
-  /**
-   * Text field in *TextWithImage → With Button → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.withButton.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Button Link field in *TextWithImage → With Button → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.withButton.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
-   * Button Text field in *TextWithImage → With Button → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.withButton.primary.buttonText
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  buttonText: prismic.KeyTextField;
-
-  /**
-   * Image field in *TextWithImage → With Button → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.withButton.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * With Button variation for TextWithImage Slice
- *
- * - **API ID**: `withButton`
- * - **Description**: TextWithImage
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextWithImageSliceWithButton = prismic.SharedSliceVariation<
-  "withButton",
-  Simplify<TextWithImageSliceWithButtonPrimary>,
-  never
->;
-
-/**
- * Slice variation for *TextWithImage*
- */
-type TextWithImageSliceVariation =
-  | TextWithImageSliceDefault
-  | TextWithImageSliceWithButton;
-
-/**
- * TextWithImage Shared Slice
- *
- * - **API ID**: `text_with_image`
- * - **Description**: TextWithImage
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextWithImageSlice = prismic.SharedSlice<
-  "text_with_image",
-  TextWithImageSliceVariation
->;
+  | SettingsDocument
+  | YearsDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -865,6 +541,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CategoriesDocument,
+      CategoriesDocumentData,
+      CategoriesDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       MarqueeDocument,
@@ -879,38 +558,12 @@ declare module "@prismicio/client" {
       ProjectDocument,
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
-      ProjectPage2Document,
-      ProjectPage2DocumentData,
-      ProjectPage2DocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      YearsDocument,
+      YearsDocumentData,
+      YearsDocumentDataSlicesSlice,
       AllDocumentTypes,
-      HeroSlice,
-      HeroSliceDefaultPrimary,
-      HeroSliceVariation,
-      HeroSliceDefault,
-      ImageSlice,
-      ImageSliceDefaultPrimary,
-      ImageSliceBannerPrimary,
-      ImageSliceVariation,
-      ImageSliceDefault,
-      ImageSliceBanner,
-      ProjectTextSlice,
-      ProjectTextSliceDefaultPrimary,
-      ProjectTextSliceVariation,
-      ProjectTextSliceDefault,
-      TextSlice,
-      TextSliceDefaultPrimary,
-      TextSliceTwoColumnsPrimary,
-      TextSliceVariation,
-      TextSliceDefault,
-      TextSliceTwoColumns,
-      TextWithImageSlice,
-      TextWithImageSliceDefaultPrimary,
-      TextWithImageSliceWithButtonPrimary,
-      TextWithImageSliceVariation,
-      TextWithImageSliceDefault,
-      TextWithImageSliceWithButton,
     };
   }
 }

@@ -81,7 +81,7 @@ footer {
 
 .project-item {
     width: 22vw;
-    height: 70vh;
+    /* height: 70vh; */
     padding-right: 10vw;
 }
 
@@ -94,9 +94,9 @@ a:hover{
 }
 
 .project-item img {
-    width: 120%;
-    height: 50%;
-    padding-top: 5vh;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
     cursor: pointer;
     object-fit: cover;
 }
@@ -111,6 +111,7 @@ a:hover{
     line-height: 1.2;
     color: #5700FC;
 }
+
 
 .project-item img:hover ~ h2{
     color: #ff00d4;
@@ -144,7 +145,7 @@ h3.project-item-title {
 
     .project-item {
         width: 40vw;
-        height: 60vh;
+        /* height: 60vh; */
         padding-right: 5vw;
     }
 
@@ -169,7 +170,7 @@ h3.project-item-title {
 
     .project-item {
         width: 80vw;
-        height: 70vh;
+        /* height: 70vh; */
         padding-right: 5vw;
     }
 

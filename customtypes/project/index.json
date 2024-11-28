@@ -63,16 +63,6 @@
           "placeholder": ""
         }
       },
-      "project_link": {
-        "type": "Link",
-        "config": {
-          "label": "Project link",
-          "placeholder": "",
-          "allowTargetBlank": false,
-          "select": null,
-          "allowText": false
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
