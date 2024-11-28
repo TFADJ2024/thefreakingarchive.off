@@ -6,7 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "../prismicio";
 import { components } from "../slices";
 import { PrismicRichText } from "@/components/PrismicRichText";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -32,12 +32,15 @@ export default async function Page() {
       <div className="projects">
         {projects.map((item,i)=> {
           return (
+               
               <div className="project-item" key={`project${i}`}>
                 <PrismicNextImage field={item.data.project_image} />
                 <h3>{item.data.project_title}</h3>
                 <h2><PrismicRichText field={item.data.project_descrption}/></h2> 
                 <h3>{item.data.students_name}</h3>
-              </div>
+                <PrismicNextLink field={item.data.project_link}>http://localhost:3000/karoly-eggly-appear</PrismicNextLink>
+                </div>
+              
           )
         })}
       </div>

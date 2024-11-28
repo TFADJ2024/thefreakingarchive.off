@@ -50,7 +50,7 @@ async function Header() {
       </div>
       <div className="title">
         <h1 className="title-page">
-          nav title
+          The GDA Freaking Archive
         </h1>
       </div>
       <div className="navigation-bar">
@@ -65,6 +65,7 @@ async function Header() {
   );
   
 }
+
 
 async function Footer() {
   const client = createClient();

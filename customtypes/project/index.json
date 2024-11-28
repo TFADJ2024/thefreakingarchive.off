@@ -39,12 +39,12 @@
             {
               "name": "pic 2",
               "width": 1080,
-              "height": ""
+              "height": null
             },
             {
               "name": "pic 3",
               "width": 1080,
-              "height": ""
+              "height": null
             }
           ]
         }
@@ -61,6 +61,16 @@
         "config": {
           "label": "Year Month",
           "placeholder": ""
+        }
+      },
+      "project_link": {
+        "type": "Link",
+        "config": {
+          "label": "Project link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null,
+          "allowText": false
         }
       },
       "slices": {
