@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import { asText } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
+
 import { createClient } from "../prismicio";
 import { components } from "../slices";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -49,4 +51,7 @@ export default async function Page() {
     </div>
   )
 }
+
+
+
 

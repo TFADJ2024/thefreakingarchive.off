@@ -71,6 +71,7 @@ footer {
     grid-template-columns: 34% 34% 34%;
     gap: 0px 20px; 
     z-index: -1; 
+    cursor: pointer;
 }
 
 .projects a {
