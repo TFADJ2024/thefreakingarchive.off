@@ -77,6 +77,28 @@ interface AboutDocumentData {
   video: prismic.EmbedField;
 
   /**
+   * Contact field in *About*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Contact
+   * - **API ID Path**: about.contact
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact: prismic.TitleField;
+
+  /**
+   * email field in *About*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: e-mail
+   * - **API ID Path**: about.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  email: prismic.LinkField;
+
+  /**
    * Slice Zone field in *About*
    *
    * - **Field Type**: Slice Zone

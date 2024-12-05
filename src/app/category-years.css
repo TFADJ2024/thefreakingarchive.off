@@ -82,15 +82,7 @@ div.content-wrapper {
     margin: 8vh 10vw 10vh 10vw;
 }
 
-/* CATEGORY */
-div.category {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 4vh;    
-}
-
-div.category h1 {
+div.tag{
     margin: 0;
     padding: 0;
     padding-bottom: 0.7vh;
@@ -98,6 +90,25 @@ div.category h1 {
     font-size: 55px;
     text-transform: uppercase;
     color: #5700FC;
+
+
+}
+
+/* CATEGORY */
+/* div.projects {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 4vh;
+} */
+
+div.projects {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    padding-right: 1vw;
+    text-decoration: none;
 }
 
 div.divider {
@@ -114,39 +125,33 @@ div.project-wrapper {
     position: relative;
     margin: 0;
     padding: 3vh 0vw;
+    width: 100%;
     scroll-behavior: smooth;
     overflow: auto;
     scroll-snap-type: x mandatory;
+    margin-bottom: 4vh;
 }
 
 /* PROJECTS */
 a.project-link {
-    display: inline-block;
     position: relative;
     margin: 0;
-    padding: 0;
-    padding-right: 1vw;
-    text-decoration: none;
-}
-
-div.project-item {
-    position: relative;
-    margin: 0;
+    margin-right: 1vw;
     width: 22vw;
-    height: 50vh;
+    height: 53vh;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 div.project-item img {
     margin: 0;
     padding: 0;
-    padding-bottom: 1.5vh;
     width: 22vw;
     height: 30vh;
     object-fit: cover;
-    cursor: pointer;
 }
 
-div.project-item h3 {
+h3.project-title {
     margin: 0;
     padding: 0;
     font-family: text;
@@ -156,17 +161,17 @@ div.project-item h3 {
     text-transform: capitalize;
 }
 
-.project-item .project-title {
+h3.student-name {
     margin: 0;
     padding: 0;
     font-family: text;
     font-size: 12px;
     color: #5700FC;
     width: fit-content;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
-div.project-item h2 {
+h2.project-description {
     margin: 0;
     padding: 1.5vh 0vw;
     padding-right: 1.5vw;
@@ -176,6 +181,7 @@ div.project-item h2 {
     line-height: 1.2;
     color: #5700FC;
     width: fit-content;
+    text-transform: none;
 }
 
 /* HOVERS DO NOT TOUCH THIS */

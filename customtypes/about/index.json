@@ -59,6 +59,25 @@
           "placeholder": ""
         }
       },
+      "contact": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Contact",
+          "placeholder": "Contact",
+          "allowTargetBlank": true,
+          "single": "heading2"
+        }
+      },
+      "email": {
+        "type": "Link",
+        "config": {
+          "label": "email",
+          "placeholder": "e-mail",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -27,6 +27,8 @@ export default async function About() {
   const page = await client.getAllByType("about").catch(() => notFound());
   const about = await client.getAllByType ("about");
 
+  console.log(about[0].data.email)
+
   return (
     <div>
       <div className="content-wrapper">
@@ -63,19 +65,29 @@ export default async function About() {
       <div className="content-wrapper">
         {about.map((item,i)=> {
           return (
-           
+           <>
             <div className="documentation">
               <h2><PrismicRichText field={item.data.subtitle} /></h2>
               <div dangerouslySetInnerHTML={{ __html: item.data.video.html }}/>
             </div>
-            
+            </>
+           
           )
         })}
       </div>
+
+      <div className="contact">
+        {about.map((item,i)=> {
+            return (
+              <div className="documentation">
+                <h2><PrismicRichText field={item.data.contact} /></h2>
+                <a href={item.data.email.text} >info@thefreakingarchive.com 
+                  </a>
+              </div>
+            )
+          })}
+      </div>
     </div>
-
-
-
     </div>
   )
 
