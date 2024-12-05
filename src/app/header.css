@@ -33,7 +33,7 @@ header {
     position: relative;
     margin: 0;
     padding: 0;
-    color: #F9F6EE;
+    color: #F9F6EE ;
     background-color: #ff00d4;
     font-family: text ;
     scroll-behavior: smooth;
@@ -51,6 +51,7 @@ header {
     white-space: nowrap;
     overflow: hidden; 
     animation:  15s linear infinite;
+    color: #F9F6EE;
 }
 
 /* PAGE TITLE */

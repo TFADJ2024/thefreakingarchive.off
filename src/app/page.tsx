@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { asText } from "@prismicio/client";
+import { RichTextNodeType, asText } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 
@@ -9,6 +9,7 @@ import { components } from "../slices";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
+import { RichTextField } from "@prismicio/client";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -51,7 +52,3 @@ export default async function Page() {
     </div>
   )
 }
-
-
-
-
