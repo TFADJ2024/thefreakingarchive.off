@@ -50,7 +50,7 @@ async function Header() {
       </div>
       <div className="title">
         <h1 className="title-page">
-          The GDA Freaking Archive
+          The GDA Freaking Archive 
         </h1>
       </div>
       <div className="navigation-bar">
