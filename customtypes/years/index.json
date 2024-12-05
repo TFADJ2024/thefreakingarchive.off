@@ -26,7 +26,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "year_item": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

@@ -1,0 +1,56 @@
+{
+  "id": "year_item",
+  "type": "SharedSlice",
+  "name": "YearItem",
+  "description": "YearItem",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "projectimg": {
+          "type": "Image",
+          "config": {
+            "label": "Project Image",
+            "constraint": {
+              "width": 300
+            },
+            "thumbnails": []
+          }
+        },
+        "project_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Title",
+            "placeholder": "project title",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "project_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Description",
+            "placeholder": "project description",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "name_student": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Name Student",
+            "placeholder": "your full name",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
