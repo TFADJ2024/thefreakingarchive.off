@@ -77,6 +77,28 @@ interface AboutDocumentData {
   video: prismic.EmbedField;
 
   /**
+   * Contact field in *About*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Contact
+   * - **API ID Path**: about.contact
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact: prismic.TitleField;
+
+  /**
+   * email field in *About*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: e-mail
+   * - **API ID Path**: about.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  email: prismic.LinkField;
+
+  /**
    * Slice Zone field in *About*
    *
    * - **Field Type**: Slice Zone
@@ -565,7 +587,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type YearsDocumentDataSlicesSlice = never;
+type YearsDocumentDataSlicesSlice = YearItemSlice;
 
 /**
  * Content for Years documents
@@ -648,6 +670,81 @@ export type AllDocumentTypes =
   | SettingsDocument
   | YearsDocument;
 
+/**
+ * Primary content in *YearItem → Default → Primary*
+ */
+export interface YearItemSliceDefaultPrimary {
+  /**
+   * Project Image field in *YearItem → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year_item.default.primary.projectimg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  projectimg: prismic.ImageField<never>;
+
+  /**
+   * Project Title field in *YearItem → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: project title
+   * - **API ID Path**: year_item.default.primary.project_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_title: prismic.TitleField;
+
+  /**
+   * Project Description field in *YearItem → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: project description
+   * - **API ID Path**: year_item.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.TitleField;
+
+  /**
+   * Name Student field in *YearItem → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: your full name
+   * - **API ID Path**: year_item.default.primary.name_student
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name_student: prismic.TitleField;
+}
+
+/**
+ * Default variation for YearItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type YearItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<YearItemSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *YearItem*
+ */
+type YearItemSliceVariation = YearItemSliceDefault;
+
+/**
+ * YearItem Shared Slice
+ *
+ * - **API ID**: `year_item`
+ * - **Description**: YearItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type YearItemSlice = prismic.SharedSlice<
+  "year_item",
+  YearItemSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -695,6 +792,10 @@ declare module "@prismicio/client" {
       YearsDocumentData,
       YearsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      YearItemSlice,
+      YearItemSliceDefaultPrimary,
+      YearItemSliceVariation,
+      YearItemSliceDefault,
     };
   }
 }

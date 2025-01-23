@@ -2,4 +2,6 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {};
+export const components = {
+  year_item: dynamic(() => import("./YearItem")),
+};
