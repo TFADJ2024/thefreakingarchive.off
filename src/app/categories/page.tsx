@@ -8,8 +8,6 @@ import { components } from "../../slices";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
-
-
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const page = await client.getByUID("page", "home").catch(() => notFound());
@@ -53,7 +51,7 @@ export default async function Page() {
                           <h3 className="student-name">{item.data.students_name}</h3>
                           </div>
                       </a>
-            )})}
+                )})}
               </div>
               </>
             }

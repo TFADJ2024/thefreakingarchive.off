@@ -124,16 +124,17 @@ div.project-wrapper {
     display: flex;
     position: relative;
     margin: 0;
+    margin-bottom: 4vh;
     padding: 3vh 0vw;
     width: 100%;
     scroll-behavior: smooth;
     overflow: auto;
-    scroll-snap-type: x mandatory;
-    margin-bottom: 4vh;
+    scroll-snap-type: x mandatory !important;
 }
 
 /* PROJECTS */
 a.project-link {
+    display: inline-block;
     position: relative;
     margin: 0;
     margin-right: 1vw;
@@ -146,7 +147,7 @@ a.project-link {
 div.project-item img {
     margin: 0;
     padding: 0;
-    width: 22vw;
+    width: 20vw;
     height: 30vh;
     object-fit: cover;
 }
