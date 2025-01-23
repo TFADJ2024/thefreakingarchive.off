@@ -104,7 +104,8 @@ div.content-wrapper-1 h1 {
 div.content-wrapper-1 p {
     margin: 0;
     padding: 0;
-    padding-left: 25vw;
+    padding-left: 15vw;
+    padding-right: 4vw;
     font-family: 'text';
     font-size: 18px;
     font-weight: 100;
