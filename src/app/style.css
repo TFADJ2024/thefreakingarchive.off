@@ -9,6 +9,7 @@
 
 *{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body{
@@ -64,13 +65,12 @@ footer {
 
 /*HOME PAGE AND CATEGORIES*/
 .projects{
-    margin: 6vh 10vw;
+    margin: 6vh 6vw !important;
     padding: 0;
-    display: grid;
+    display: grid !important;
     grid-template-columns: 34% 34% 34%;
     gap: 0px 20px; 
     z-index: -1; 
-    cursor: pointer;
 }
 
 .projects a {
@@ -79,22 +79,15 @@ footer {
     width: 100%;
 }
 
-.project-item {
+.projects .project-item {
     width: 22vw;
     /* height: 70vh; */
     padding-right: 10vw;
 }
 
-a.item :hover {
-    color: #ff00d4;
-}
-
-a:hover{
-    cursor: pointer;
-}
-
 .project-item img {
-    width: 100%;
+    width: 25vw;
+    height: 30vh;
     height: auto;
     aspect-ratio: 3/2;
     cursor: pointer;
@@ -103,7 +96,7 @@ a:hover{
 
 .project-item h2{
     margin: 0;
-    width: fit-content; 
+    width: fit-content ; 
     font-family: Title;
     font-style: normal;
     font-size: 20px;
@@ -112,9 +105,8 @@ a:hover{
     color: #5700FC;
 }
 
-
 .project-item img:hover ~ h2{
-    color: #ff00d4;
+    color: #ff00d4 ;
 }
 
 .project-item h3 {
@@ -124,7 +116,7 @@ a:hover{
     width: fit-content;
 }
 
-h3.project-item-title {
+.project-item-title h3 {
     margin-top: 1.5vh;
     margin-bottom: 0.6vh;
     font-size: 14px;
