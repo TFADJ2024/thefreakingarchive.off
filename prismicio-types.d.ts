@@ -435,7 +435,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectDocumentDataSlicesSlice = never;
+type ProjectDocumentDataSlicesSlice = ProjectImagesSlice;
 
 /**
  * Content for Project documents
@@ -671,6 +671,51 @@ export type AllDocumentTypes =
   | YearsDocument;
 
 /**
+ * Primary content in *ProjectImages → Default → Primary*
+ */
+export interface ProjectImagesSliceDefaultPrimary {
+  /**
+   * projectimage field in *ProjectImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_images.default.primary.projectimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  projectimage: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ProjectImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProjectImages*
+ */
+type ProjectImagesSliceVariation = ProjectImagesSliceDefault;
+
+/**
+ * ProjectImages Shared Slice
+ *
+ * - **API ID**: `project_images`
+ * - **Description**: ProjectImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectImagesSlice = prismic.SharedSlice<
+  "project_images",
+  ProjectImagesSliceVariation
+>;
+
+/**
  * Primary content in *YearItem → Default → Primary*
  */
 export interface YearItemSliceDefaultPrimary {
@@ -792,6 +837,10 @@ declare module "@prismicio/client" {
       YearsDocumentData,
       YearsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ProjectImagesSlice,
+      ProjectImagesSliceDefaultPrimary,
+      ProjectImagesSliceVariation,
+      ProjectImagesSliceDefault,
       YearItemSlice,
       YearItemSliceDefaultPrimary,
       YearItemSliceVariation,

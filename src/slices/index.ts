@@ -3,5 +3,6 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  project_images: dynamic(() => import("./ProjectImages")),
   year_item: dynamic(() => import("./YearItem")),
 };

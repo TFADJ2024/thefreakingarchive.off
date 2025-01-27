@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { asText } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-
-
-
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { PrismicRichText } from "@/components/PrismicRichText";
@@ -39,7 +36,7 @@ export default async function Page({ params }: { params: Params }) {
     .catch(() => notFound());
 
   return (
-    <div>
+    <div className="contentwrapper">
       <div className="project-text">
         <h1 className="project-title">{page.data.project_title}</h1>
         <PrismicRichText field={page.data.project_descrption} />

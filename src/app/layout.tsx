@@ -55,9 +55,7 @@ async function Header() {
       </div>
       <div className="navigation-bar">
         {navigation.data.links.map((item,i) => (
-        <PrismicNextLink field={item.link} key={`link${i}`}>
-          <PrismicRichText field={item.label} />
-          </PrismicNextLink>
+        <PrismicNextLink field={item.link} key={`link${i}`}> <PrismicRichText field={item.label}/></PrismicNextLink>
         ))}
       </div>
     </div>
