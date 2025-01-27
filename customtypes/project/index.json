@@ -67,7 +67,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "project_images": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

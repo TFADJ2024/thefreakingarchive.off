@@ -18,69 +18,10 @@ body{
     margin: 0;
 }
 
-header {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    display: block;
-}
-
-iframe.header {
-    position: relative;
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 160px;
-    z-index: 1;
-}
-
-/* footer {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    display: block;
-    bottom: 0;
-}
-
-iframe.footer {
-    position: relative;
-    display: block;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 200px;
-} */
-
-footer {
-    position: relative;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 3vh;
-    align-items: center;
-    text-align: center;
-    background-color: #ff00d4;
-}
-
-.credits p {
-    margin: 0;
-    padding: 0;
-    padding-top: 0.5vh;
-    font-family: 'text';
-    font-size: 12px;
-    color:#F9F6EE;
-    align-self: center;
-    text-align: center;
-}
-
 /* CONTENT WRAPPER */
 div.content-wrapper {
     position: relative;
     margin: 8vh 15vw 10vh 15vw;
-    z-index: -1; 
 }
 
 div.content-wrapper-1, div.content-wrapper-2, div.documentation {

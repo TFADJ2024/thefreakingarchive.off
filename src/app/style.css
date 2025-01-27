@@ -16,51 +16,12 @@ body{
     background-color:#F9F6EE ;
     padding: 0;
     margin: 0;
-}
-
-header {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    display: block;
+    min-height: 100vh;
 }
 
 div img{
     width: 100%;
     height: auto;
-}
-
-iframe.header {
-    position: relative;
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 160px;
-    z-index: 1;
-}
-
-footer {
-    position: relative;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 3vh;
-    align-items: center;
-    text-align: center;
-    background-color: #ff00d4;
-}
-
-.credits p {
-    margin: 0;
-    padding: 0;
-    padding-top: 0.5vh;
-    font-family: 'text';
-    font-size: 12px;
-    color:#F9F6EE;
-    align-self: center;
-    text-align: center;
 }
 
 /*HOME PAGE AND CATEGORIES*/
@@ -70,7 +31,7 @@ footer {
     display: grid !important;
     grid-template-columns: 34% 34% 34%;
     gap: 0px 20px; 
-    z-index: -1; 
+    z-index: 0; 
 }
 
 .projects a {
