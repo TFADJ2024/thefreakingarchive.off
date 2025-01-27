@@ -61,9 +61,7 @@ async function Header() {
     </div>
 
   );
-  
 }
-
 
 async function Footer() {
   const client = createClient();
