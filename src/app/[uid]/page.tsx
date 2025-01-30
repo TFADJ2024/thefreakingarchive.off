@@ -29,6 +29,7 @@ export async function generateMetadata({
   };
 }
 
+
 export default async function Page({ params }: { params: Params }) {
   const client = createClient();
   const page = await client
@@ -45,12 +46,25 @@ export default async function Page({ params }: { params: Params }) {
         <PrismicNextImage field={page.data.project_image} />
       </div>
   
-      <SliceZone slices={page.data.slices} components={components} />
     </div>
-    
   )
-  
 }
+
+// const ProjectImages = ({ slice }: ProjectImagesProps): JSX.Element => {
+//   return (
+//     <section
+//       data-slice-type={slice.slice_type}
+//       data-slice-variation={slice.variation}
+//     >
+//       Placeholder component for project_images
+      
+//       <PrismicNextImage field={slice.data.primary.projectimage} />
+
+//       (variation: {slice.variation})
+//       Slices
+//     </section>
+//   );
+// };
 
 export async function generateStaticParams() {
   const client = createClient();

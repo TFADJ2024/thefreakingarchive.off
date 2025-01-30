@@ -79,8 +79,8 @@ export default async function About() {
       <div className="contact">
         {about.map((item,i)=> {
             return (
-              <div className="documentation">
-                <h2><PrismicRichText field={item.data.contact} /></h2>
+              <div className="documentation" id="contact">
+                <h2 className="contact"><PrismicRichText field={item.data.contact} /></h2>
                 <a href={item.data.email.text} >info@thefreakingarchive.com 
                   </a>
               </div>

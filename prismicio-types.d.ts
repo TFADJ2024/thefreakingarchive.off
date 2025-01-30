@@ -442,18 +442,7 @@ type ProjectDocumentDataSlicesSlice = ProjectImagesSlice;
  */
 interface ProjectDocumentData {
   /**
-   * First Name Last Name field in *Project*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.students_name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  students_name: prismic.KeyTextField;
-
-  /**
-   * Project Descrption field in *Project*
+   * Project Description field in *Project*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -464,15 +453,26 @@ interface ProjectDocumentData {
   project_descrption: prismic.RichTextField;
 
   /**
-   * Project Image (Max 5 images) field in *Project*
+   * Year Month field in *Project*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: project.project_image
+   * - **API ID Path**: project.date
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  project_image: prismic.ImageField<"pic 2" | "pic 3">;
+  date: prismic.KeyTextField;
+
+  /**
+   * First Name Last Name field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.students_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  students_name: prismic.KeyTextField;
 
   /**
    * Project Title field in *Project*
@@ -486,15 +486,15 @@ interface ProjectDocumentData {
   project_title: prismic.KeyTextField;
 
   /**
-   * Year Month field in *Project*
+   * Project Image field in *Project*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: project.date
+   * - **API ID Path**: project.project_image
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  date: prismic.KeyTextField;
+  project_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Project*
@@ -671,11 +671,11 @@ export type AllDocumentTypes =
   | YearsDocument;
 
 /**
- * Primary content in *ProjectImages → Default → Primary*
+ * Primary content in *ExtraImages → Default → Primary*
  */
 export interface ProjectImagesSliceDefaultPrimary {
   /**
-   * projectimage field in *ProjectImages → Default → Primary*
+   * projectimage field in *ExtraImages → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -686,7 +686,7 @@ export interface ProjectImagesSliceDefaultPrimary {
 }
 
 /**
- * Default variation for ProjectImages Slice
+ * Default variation for ExtraImages Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -699,12 +699,12 @@ export type ProjectImagesSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *ProjectImages*
+ * Slice variation for *ExtraImages*
  */
 type ProjectImagesSliceVariation = ProjectImagesSliceDefault;
 
 /**
- * ProjectImages Shared Slice
+ * ExtraImages Shared Slice
  *
  * - **API ID**: `project_images`
  * - **Description**: ProjectImages
