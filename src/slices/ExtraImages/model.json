@@ -1,7 +1,7 @@
 {
   "id": "project_images",
   "type": "SharedSlice",
-  "name": "ProjectImages",
+  "name": "ExtraImages",
   "description": "ProjectImages",
   "variations": [
     {
