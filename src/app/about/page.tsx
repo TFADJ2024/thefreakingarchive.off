@@ -68,7 +68,7 @@ export default async function About() {
            <>
             <div className="documentation">
               <h2><PrismicRichText field={item.data.subtitle} /></h2>
-              <div dangerouslySetInnerHTML={{ __html: item.data.video.html }}/>
+              <div className="iframe" dangerouslySetInnerHTML={{ __html: item.data.video.html }}/>
             </div>
             </>
            

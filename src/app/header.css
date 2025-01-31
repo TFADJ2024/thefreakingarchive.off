@@ -33,7 +33,7 @@ body{
     font-size: 15px;
 }
 
-.scroll-bar marquee{
+.scroll-bar p{
     margin: 0;
     padding: 0;
     display: flex;
@@ -41,8 +41,18 @@ body{
     justify-content: flex-start;
     white-space: nowrap;
     overflow: hidden; 
-    animation:  15s linear infinite;
+    animation: move-text 15s linear infinite;
     color: #F9F6EE;
+}
+
+@keyframes move-text {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* PAGE TITLE */

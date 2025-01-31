@@ -116,13 +116,20 @@ div.youtube-links {
     /* justify-content: space-between; */ 
 }
 
-div.documentation iframe {
+div.documentation .iframe {
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin: auto;
     padding: 0;
-    width: 34vw;
-    height: 34vh;
+    width: 80%;
+    height: auto;
+    position: relative;
+}
+
+.iframe iframe{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
 }
 
 div.documentation a {
