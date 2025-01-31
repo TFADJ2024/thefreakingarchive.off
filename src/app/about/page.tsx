@@ -35,7 +35,7 @@ export default async function About() {
         {about.map((item,i)=> {
           return (
            
-            <div className="content-wrapper-1">
+            <div className="content-wrapper-1" key={`item${i}`}>
               <h1><PrismicRichText field={item.data.titleone}/></h1>
               <p><PrismicRichText field={item.data.descriptionone} /></p>
               <PrismicNextImage field={item.data.image}/>
@@ -50,7 +50,7 @@ export default async function About() {
         {about.map((item,i)=> {
           return (
            
-            <div className="content-wrapper-2">
+            <div className="content-wrapper-2" key={`item2${i}`}>
               <p><PrismicRichText field={item.data.descriptiontwo} /> </p>
 
             </div>
@@ -66,10 +66,14 @@ export default async function About() {
         {about.map((item,i)=> {
           return (
            <>
-            <div className="documentation">
-              <h2><PrismicRichText field={item.data.subtitle} /></h2>
-              <div className="iframe" dangerouslySetInnerHTML={{ __html: item.data.video.html }}/>
-            </div>
+         <div className="documentation" key={`documentation${i}`}>
+            <h2><PrismicRichText field={item.data.subtitle} /></h2>
+            <div 
+              className="iframe" 
+              dangerouslySetInnerHTML={{ __html: item.data.video.html ?? '' }} // Fallback to an empty string if null
+            />
+          </div>
+
             </>
            
           )
@@ -79,7 +83,7 @@ export default async function About() {
       <div className="contact">
         {about.map((item,i)=> {
             return (
-              <div className="documentation" id="contact">
+              <div className="documentation" id="contact" key={`contact${i}`}>
                 <h2 className="contact"><PrismicRichText field={item.data.contact} /></h2>
                 <a href={item.data.email.text} >info@thefreakingarchive.com 
                   </a>

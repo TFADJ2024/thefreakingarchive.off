@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { RichTextNodeType, asText } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-
-
+import { asText } from "@prismicio/client";
 import { createClient } from "../prismicio";
-import { components } from "../slices";
-import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
-import { RichTextField } from "@prismicio/client";
+import { SliceZone } from "@prismicio/react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -28,27 +22,38 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page() {
   const client = createClient();
   const page = await client.getByUID("page", "home").catch(() => notFound());
-  const projects = await client.getAllByType ("project");
+  const projects = await client.getAllByType("project");
 
   return (
     <div>
       <div className="projects">
-        {projects.map((item,i)=> {
-          console.log(item.data.project_descrption)
+        {projects.map((item, i) => {
           return (
-               
-              <a href={`/${item.uid}`}  className="project-item" key={`project${i}`}>
-                <PrismicNextImage field={item.data.project_image} />
-                <h3>{item.data.project_title}</h3>
-                <h2>{item.data.project_descrption?.[0]?.text?.split(" ").slice(0,20).join(' ')} [...]</h2> 
-                <h3>{item.data.students_name}</h3>
-                </a>
-              
-          )
+            <a href={`/${item.uid}`} className="project-item" key={`project${i}`}>
+              <PrismicNextImage field={item.data.project_image} />
+              <h3>{item.data.project_title}</h3>
+              <h2>
+                {
+                  // Safely access rich text field and extract text
+                  item.data.project_descrption?.map((node, index) => {
+                    // Check if node is a text node or paragraph node
+                    if ( node.type === "paragraph") {
+                      return (
+                        <span key={index}>
+                          {node.text?.split(" ").slice(0, 20).join(" ")} [...]
+                        </span>
+                      );
+                    }
+                    return null;
+                  })
+                }
+              </h2>
+              <h3>{item.data.students_name}</h3>
+            </a>
+          );
         })}
       </div>
-      <SliceZone slices={page.data.slices} components={components} />
-
+      <SliceZone slices={page.data.slices} components={{}} />
     </div>
-  )
+  );
 }
