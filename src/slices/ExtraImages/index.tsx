@@ -1,5 +1,7 @@
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
+
 
 /**
  * Props for `ProjectImages`.
@@ -16,8 +18,7 @@ const ProjectImages = ({ slice }: ProjectImagesProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for project_images (variation: {slice.variation})
-      Slices
+     <PrismicNextImage field={slice.primary.projectimage} />
     </section>
   );
 };
