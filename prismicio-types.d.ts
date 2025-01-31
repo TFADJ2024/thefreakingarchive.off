@@ -453,17 +453,6 @@ interface ProjectDocumentData {
   project_descrption: prismic.RichTextField;
 
   /**
-   * Year Month field in *Project*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  date: prismic.KeyTextField;
-
-  /**
    * First Name Last Name field in *Project*
    *
    * - **Field Type**: Text
@@ -495,6 +484,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   project_image: prismic.ImageField<never>;
+
+  /**
+   * Year field in *Project*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  year: prismic.SelectField<"2023/2024" | "2024/2025">;
 
   /**
    * Slice Zone field in *Project*
