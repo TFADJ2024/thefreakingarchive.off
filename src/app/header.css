@@ -41,7 +41,7 @@ body{
     justify-content: flex-start;
     white-space: nowrap;
     overflow: hidden; 
-    animation: move-text 15s linear infinite;
+    animation: move-text 30s linear infinite;
     color: #F9F6EE;
 }
 
@@ -274,5 +274,23 @@ div.sidebar a:hover {
     .hamburger-icon{
         visibility: visible;
     }
- }
+
+
+    .scroll-bar p{
+        overflow: visible;
+    }
+
+
+    @keyframes move-text {
+        0% {
+            transform: translateX(100%);
+        }
+    
+        100% {
+            transform: translateX(-440%);
+        }
+    }
+
+}
+
 
