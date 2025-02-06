@@ -40,7 +40,7 @@ body{
     flex-direction: row;
     justify-content: flex-start;
     white-space: nowrap;
-    overflow: hidden; 
+    overflow: visible; 
     animation: move-text 30s linear infinite;
     color: #F9F6EE;
 }
@@ -51,7 +51,7 @@ body{
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-130%);
     }
 }
 
@@ -255,6 +255,16 @@ div.sidebar a:hover {
         left: -20vw;
     } 
 
+    @keyframes move-text {
+        0% {
+            transform: translateX(100%);
+        }
+    
+        100% {
+            transform: translateX(-300%);
+        }
+    }
+
  }
 
  @media only screen and (max-width: 700px) {
@@ -287,7 +297,7 @@ div.sidebar a:hover {
         }
     
         100% {
-            transform: translateX(-440%);
+            transform: translateX(-390%);
         }
     }
 
