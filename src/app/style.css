@@ -81,7 +81,7 @@ div img{
     margin-top: 1.5vh;
     margin-bottom: 0.6vh;
     font-size: 14px;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 
 /* RESPONSIVE DESIGN */
