@@ -44,7 +44,7 @@ export default async function Page() {
       <div className="content-wrapper">
         {/* Display each year with its projects */}
         {sortedYears.map((year) => (
-          <div key={year} className="year-section tag">
+          <div key={year} className="year-section tag" id="tag">
             <h2 className="year-title">{year !== "Unknown" ? year : "No Year Available"}</h2>
             <div className="divider"></div>
             <div className="project-wrapper">
