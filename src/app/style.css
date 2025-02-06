@@ -38,6 +38,8 @@ div img{
     display: block;
     text-decoration: none;
     width: 100%;
+    margin: 0;
+    padding-bottom: 5vh;
 }
 
 .projects .project-item {
@@ -57,6 +59,7 @@ div img{
 
 .project-item h2{
     margin: 0;
+    padding: 0;
     width: fit-content ; 
     font-family: Title;
     font-style: normal;
@@ -75,6 +78,9 @@ div img{
     font-size: 12px;
     color: #5700FC;
     width: fit-content;
+    line-height: 1.3;
+    padding: 0;
+    margin: 1vh 0;
 }
 
 .project-item-title h3 {
