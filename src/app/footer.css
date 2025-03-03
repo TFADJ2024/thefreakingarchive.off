@@ -33,3 +33,9 @@ footer {
     align-self: center;
     text-align: center;
 }
+
+@media only screen and (max-width: 700px) { 
+    .credits p {
+        font-size: 10px;
+    }
+}
