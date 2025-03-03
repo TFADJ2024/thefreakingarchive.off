@@ -28,25 +28,21 @@ export default async function Page() {
     <div>
       <div className="projects">
         {projects.map((item, i) => {
+          // Find the first paragraph in project_description
+          const firstParagraph = item.data.project_descrption?.find(
+            (node) => node.type === "paragraph"
+          );
+
           return (
             <a href={`/${item.uid}`} className="project-item" key={`project${i}`}>
               <PrismicNextImage field={item.data.project_image} />
               <h3>{item.data.project_title}</h3>
               <h2>
-                {
-                  // Safely access rich text field and extract text
-                  item.data.project_descrption?.map((node, index) => {
-                    // Check if node is a text node or paragraph node
-                    if ( node.type === "paragraph") {
-                      return (
-                        <span key={index}>
-                          {node.text?.split(" ").slice(0, 20).join(" ")} [...]
-                        </span>
-                      );
-                    }
-                    return null;
-                  })
-                }
+                {firstParagraph && (
+                  <span>
+                    {firstParagraph.text?.split(" ").slice(0, 20).join(" ")} [...]
+                  </span>
+                )}
               </h2>
               <h3>{item.data.students_name}</h3>
             </a>
