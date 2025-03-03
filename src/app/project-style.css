@@ -108,4 +108,8 @@ img.pictures-item {
         margin: 0;
         margin-bottom: 2vh;
     }
+
+    h1.project-title {
+        font-size: 32px;
+    }
 }
