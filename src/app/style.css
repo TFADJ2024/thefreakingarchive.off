@@ -81,6 +81,7 @@ div img{
     line-height: 1.3;
     padding: 0;
     margin: 1vh 0;
+    text-transform: uppercase;
 }
 
 .project-item-title h3 {
