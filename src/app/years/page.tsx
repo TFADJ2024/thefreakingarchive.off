@@ -48,34 +48,33 @@ export default async function Page() {
             <h2 className="year-title">{year !== "Unknown" ? year : "No Year Available"}</h2>
             <div className="divider"></div>
             <div className="project-wrapper">
-              {groupedByYear[year].map((project, projectIndex) => (
-                <a
-                  href={`/${project.uid}`}
-                  className="project-link"
-                  key={`project-${projectIndex}`}
-                >
-                  <div className="project-item">
-                    <PrismicNextImage field={project.data.project_image} />
-                    <h3 className="project-title">{project.data.project_title}</h3>
-                    <h2 className="project-description">
-                      {
-                        project.data.project_descrption?.map((node, index) => {
-                          // Check if the node is of type 'Text' to access the 'text' property
-                          if (node.type === 'paragraph') {
-                            return (
-                              <span key={index}>
-                                {node.text?.split(" ").slice(0, 20).join(" ")} [...]
-                              </span>
-                            );
-                          }
-                          return null;
-                        })
-                      }
-                    </h2>
-                    <h3 className="student-name">{project.data.students_name}</h3>
-                  </div>
-                </a>
-              ))}
+              {groupedByYear[year].map((project, projectIndex) => {
+                // Find the first paragraph in project_description
+                const firstParagraph = project.data.project_descrption?.find(
+                  (node) => node.type === "paragraph"
+                );
+
+                return (
+                  <a
+                    href={`/${project.uid}`}
+                    className="project-link"
+                    key={`project-${projectIndex}`}
+                  >
+                    <div className="project-item">
+                      <PrismicNextImage field={project.data.project_image} />
+                      <h3 className="project-title">{project.data.project_title}</h3>
+                      <h2 className="project-description">
+                        {firstParagraph && (
+                          <span>
+                            {firstParagraph.text?.split(" ").slice(0, 20).join(" ")} [...]
+                          </span>
+                        )}
+                      </h2>
+                      <h3 className="student-name">{project.data.students_name}</h3>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         ))}
