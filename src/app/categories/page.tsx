@@ -42,26 +42,22 @@ export default async function Page() {
                     {projects
                       .filter((project) => project.tags.includes(item))
                       .map((item, i) => {
+                        // Find the first paragraph in project_description
+                        const firstParagraph = item.data.project_descrption?.find(
+                          (node) => node.type === "paragraph"
+                        );
+
                         return (
                           <a href={`/${item.uid}`} className="project-link" key={`project${i}`}>
                             <div className="project-item">
                               <PrismicNextImage field={item.data.project_image} />
                               <h3 className="project-title">{item.data.project_title}</h3>
                               <h2 className="project-description">
-                                {
-                                  // Safely extract text from rich text field
-                                  item.data.project_descrption?.map((node, index) => {
-                                    // Check if the node is of type 'text'
-                                    if (node.type === 'paragraph') {
-                                      return (
-                                        <span key={index}>
-                                          {node.text?.split(" ").slice(0, 20).join(" ")} [...]
-                                        </span>
-                                      );
-                                    }
-                                    return null;
-                                  })
-                                }
+                                {firstParagraph && (
+                                  <span>
+                                    {firstParagraph.text?.split(" ").slice(0, 20).join(" ")} [...]
+                                  </span>
+                                )}
                               </h2>
                               <h3 className="student-name">{item.data.students_name}</h3>
                             </div>
