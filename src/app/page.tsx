@@ -40,7 +40,7 @@ export default async function Page() {
               <h2>
                 {firstParagraph && (
                   <span>
-                    {firstParagraph.text?.split(" ").slice(0, 20).join(" ")} [...]
+                    {asText([firstParagraph]).split(" ").slice(0, 20).join(" ")} [...]
                   </span>
                 )}
               </h2>

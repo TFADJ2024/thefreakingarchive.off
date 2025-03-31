@@ -64,11 +64,11 @@ export default async function Page() {
                       <PrismicNextImage field={project.data.project_image} />
                       <h3 className="project-title">{project.data.project_title}</h3>
                       <h2 className="project-description">
-                        {firstParagraph && (
-                          <span>
-                            {firstParagraph.text?.split(" ").slice(0, 20).join(" ")} [...]
-                          </span>
-                        )}
+                      {firstParagraph && (
+                        <span>
+                          {asText([firstParagraph]).split(" ").slice(0, 20).join(" ")} [...]
+                        </span>
+                      )}
                       </h2>
                       <h3 className="student-name">{project.data.students_name}</h3>
                     </div>
