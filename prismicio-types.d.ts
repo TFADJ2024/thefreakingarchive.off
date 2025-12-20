@@ -494,7 +494,7 @@ interface ProjectDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  year: prismic.SelectField<"2023/2024" | "2024/2025" | "2025/2026">;
+  year: prismic.SelectField<"2023/2024" | "2024/2025"| "2025/2026">;
 
   /**
    * Slice Zone field in *Project*
