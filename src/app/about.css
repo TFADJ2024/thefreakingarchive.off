@@ -174,7 +174,7 @@ h2.contact {
     }
 
     div.content-wrapper-2 {
-        columns: 2;
+       /* columns: 2;*/
         gap: 3vw;
     }
 
